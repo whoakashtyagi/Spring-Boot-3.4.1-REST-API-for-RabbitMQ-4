@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: application-a
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: incoming
+          content-type: application/json
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: password
+    virtual-host: /
+    connection-name: app-a-connection
+
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
+    org.springframework.rabbit: DEBUG
+
+server:
+  port: 8080
+

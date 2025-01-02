@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: application-b
+  cloud:
+    function:
+      definition: processor;output
+    stream:
+      bindings:
+        processor-in-0:
+          destination: incoming
+        processor-out-0:
+          destination: uppercase
+        output-in-0:
+          destination: uppercase
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: password
+    virtual-host: /
+    connection-name: app-b-connection
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
+    org.springframework.rabbit: DEBUG
+
+server:
+  port: 8081
